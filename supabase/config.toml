@@ -1,1 +1,4 @@
 project_id = "jilrrsonlseorrwomavf"
+
+[functions.generate-backgrounds]
+verify_jwt = false
