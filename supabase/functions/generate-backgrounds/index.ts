@@ -32,14 +32,14 @@ serve(async (req) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            model: "google/gemini-2.5-flash-image",
+            model: "google/gemini-3.1-flash-image-preview",
             messages: [
               {
                 role: "user",
                 content: [
                   {
                     type: "text",
-                    text: `Take this image of a person and place them on a solid ${bgColor} background. Remove the existing background completely and replace it with a pure ${bgColor} (#${bgColor === "white" ? "FFFFFF" : "000000"}) background. Keep the person exactly the same - same size, same position, same details. The background must be completely solid ${bgColor} with no gradients or artifacts.`,
+                    text: `Take this image of a person and place them on a solid ${bgColor} background. Remove the existing background completely and replace it with a pure ${bgColor} (#${bgColor === "white" ? "FFFFFF" : "000000"}) background. Keep the person exactly the same - same size, same position, same details, same resolution. Output the image at the highest possible resolution matching the input. The background must be completely solid ${bgColor} with no gradients, noise, or compression artifacts.`,
                   },
                   {
                     type: "image_url",
