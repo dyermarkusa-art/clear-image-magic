@@ -5,10 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  define: {
-    __APP_VERSION__: JSON.stringify(
-      `1.0.${Math.floor(Date.now() / 1000)}`
-    ),
+  env: {
+    VITE_APP_VERSION: `1.0.${Math.floor(Date.now() / 1000)}`,
   },
   server: {
     host: "::",
