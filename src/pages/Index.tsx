@@ -219,7 +219,20 @@ const Index = () => {
                 </div>
               </div>
             ) : (
-              <label className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-8 cursor-pointer hover:border-primary/50 transition-colors">
+              <label
+                className="flex flex-col items-center justify-center border-2 border-dashed rounded-lg p-8 cursor-pointer hover:border-primary/50 transition-colors"
+                onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  const f = e.dataTransfer.files?.[0];
+                  if (f && f.type.startsWith("image/")) {
+                    setSourceFile(f);
+                    setSourcePreview(URL.createObjectURL(f));
+                    setError(null);
+                  }
+                }}
+              >
                 <Upload className="w-8 h-8 text-muted-foreground mb-2" />
                 <span className="text-sm font-medium">Drop or click to upload a photo</span>
                 <span className="text-xs text-muted-foreground mt-1">JPG, PNG, WebP</span>
