@@ -147,7 +147,6 @@ const Index = () => {
               <Wand2 className="w-4 h-4 text-primary-foreground" />
             </div>
             <h1 className="text-lg font-bold tracking-tight">Alpha Extract</h1>
-            <span className="text-[10px] text-muted-foreground font-mono">v{import.meta.env.VITE_APP_VERSION}</span>
           </div>
           {(whiteFile || blackFile || resultUrl || sourceFile) && (
             <Button variant="ghost" size="sm" onClick={reset}>
